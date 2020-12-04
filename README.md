@@ -1,2 +1,2 @@
 # Openstack
-Ghi chép của quoccb trong quá trình tìm hiểu Openstack
+Ghi chép trong quá trình tìm hiểu Virtualization
