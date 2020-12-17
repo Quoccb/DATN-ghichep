@@ -1,5 +1,18 @@
 # Introduction to SDN (Software Defined Networking)
 
+# Mục lục
+
+- [1. Mạng truyền thống](##1)
+  - [1.1. Controll Plane](###1)
+  - [1.2. Data Plane](###2)
+  - [1.3. Management Plane](##3)
+- [2. Hạn chế của mạng truyền thống](##2)
+- [3.SDN (Software Defined Networking)](##3)
+  - [Southbound Interface](###1)
+  - [Northbound Interface](###3)
+  - [REST API](###4)
+
+
 ## 1. Mạng truyền thống
 Đối với mạng truyền thống, ta có các thiết bị mạng đặc trưng như *Router, Switch và Firewall*, chúng được sử dụng cho các tác vụ cụ thể.
 
