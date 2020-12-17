@@ -2,17 +2,17 @@
 
 # Mục lục
 
-- [1. Mạng truyền thống](##1)
-  - [1.1. Controll Plane](###1)
-  - [1.2. Data Plane](###2)
-  - [1.3. Management Plane](##3)
-- [2. Hạn chế của mạng truyền thống](##2)
-- [3.SDN (Software Defined Networking)](##3)
-  - [Southbound Interface](###1)
-  - [Northbound Interface](###3)
-  - [REST API](###4)
+- [1. Mạng truyền thống](#1)
+  - [1.1. Controll Plane](#2)
+  - [1.2. Data Plane](#3)
+  - [1.3. Management Plane](#4)
+- [2. Hạn chế của mạng truyền thống](#5)
+- [3.SDN (Software Defined Networking)](#6)
+  - [Southbound Interface](#7)
+  - [Northbound Interface](#8)
+  - [REST API](#9)
 
-
+<a name='1' ></a>
 ## 1. Mạng truyền thống
 Đối với mạng truyền thống, ta có các thiết bị mạng đặc trưng như *Router, Switch và Firewall*, chúng được sử dụng cho các tác vụ cụ thể.
 
@@ -32,6 +32,7 @@ Tất cả các tác vụ khác nhau trên được phân biệt bằng các **p
 
   ![](https://i.imgur.com/9wXu3TP.png)
 
+<a name='2' ></a>
 ### 1.1. Control Plane
 
 **Control Plane** có nhiệm vụ trao đổi thông tin định tuyến, xây dựng bảng ARP, v.v. Dưới đây là một số tác vụ được thực hiện bởi **control plane**:
@@ -41,6 +42,7 @@ Tất cả các tác vụ khác nhau trên được phân biệt bằng các **p
   - Xây dựng bảng ARP.
   - Chạy các giao thức định tuyến như OSPF, EIGRP, BGP và xây dựng bảng định tuyến.
 
+<a name='3' ></a>
 ### 1.2. Data Plane
 
 **Data Plane** có nhiệm vụ chuyển tiếp lưu lượng dựa trên thông tin mà **control plane** cung cấp. Dưới đây là một số tác vụ **data plane** cần thực hiện:
@@ -54,6 +56,7 @@ Tất cả các tác vụ khác nhau trên được phân biệt bằng các **p
 
 Các tác vụ của **data plane** phải được thực hiện nhanh nhất có thể, đó là lý do vì sao các việc chuyển tiếp lưu lượng được thực hiện bởi phần cứng chuyên dụng như ASIC và bảng TCAM.
 
+<a name='4' ></a>
 ### 1.3. Management Plane
 **Management plane** được sử dụng cho truy nhập và quản lý các thiết bị mạng. Ví dụ, truy nhập thiết bị qua **telnet**, **SSH** hoặc **console port**.
 
@@ -67,6 +70,7 @@ Có thể thấy rằng **control plane** là nơi thực hiện những giao th
 
 Thông tin từ bảng định tuyến và bảng ARP sau đó được dùng để xây dựng bảng chuyển tiếp (Forwarding table). Khi router nhận một gói tin IP, nó sẽ có thể chuyển tiếp gói tin một cách nhanh chóng nhờ Forwarding Table đã được xây dựng trước đó.
 
+<a name='5' ></a>
 ## 2. Hạn chế của mạng truyền thống.
 
 Kiến trúc mạng truyền thống như mô tả ở trên đã được xây dựng và phát triển trong hàng chục năm qua nên không có vấn đề gì "sai" đối với mạngt truyền thống cả. Vấn đề ở đây là vấn đề kinh tế, những thách thức kinh tế hiện nay đang đòi hỏi những giải pháp khác nhau.
@@ -97,6 +101,7 @@ Những máy ảo này có khả năng di chuyển tự động từ máy chủ 
 
 Xu hướng bay giờ là mọi thứ phải được ảo hóa nên ảo hóa mạng cũng là xu thế tự nhiên. Các công ty lớn như Cisco từng chỉ bán phần cứng độc quyền giờ cũng cung cấp các router ảo, ASAs, Wireless LAN controller, v.v. có thể chạy trên máy chủ VMware.
 
+<a name='6' ></a>
 ## 3. SDN (Software Defined Networking)
 
 Giống như "cloud" hot mấy năm trước, mọi tổ chức hoặc nhà cung cấp đều có những định nghĩa khác nhau về SDN và cung cấp những sản phẩm khác nhau.
@@ -119,6 +124,7 @@ Có một số ưu điểm và nhược điểm giữa control plane tập trung
 
 SDN controller có hai giao diện gọi là **northbound interface (NBI)** và **southbound interface (SBI)**.
 
+<a name='7' ></a>
 ### Southbound Interface
 
 SDN controller phải giao tiếp với các thiết bị mạng để lập trình **data plane**. Điều này được thực hiện thông qua southbound interface. Đây không phải là giao diện vật lý mà là giao diện mềm (software interface), thường là một API (Application Programming Interface).
@@ -131,6 +137,7 @@ Một số giao diện southbound interface phổ biến là:
   - Cisco OpFlex: Đây là đáp trả của Cisco cho OpenFlow. Nó cũng là một giao thức mã nguồn mở đã được đệ trình lên IETF để chuẩn hóa.
   - CLI: Cisco đề xuất APIC-EM, là một giải pháp SDN cho thế hệ router và switch hiện tại. Nó sử dụng các giao thức khả dụng trên thế hệ phần cứng hiện tại như telnet, SSH và SNMP.
 
+<a name='8' ></a>
 ### Northbound Interface
 
 NBI được sử dụng để truy nhập vào chính SDN controller. Điều này cho phép quản trị viên của mạng truy nhập vào SDN để cấu hình nó hoặc truy xuất thông tin từ nó. Điều này có thể được hoàn thành thông qua một GUI nhưng nó cũng cung cấp một API cho phép những ứng dụng khác truy nhập tới SDN controller. Bạn có thể sử dụng điều này để viết những scrip và tự động hóa việc quản trị mạng của bạn.
@@ -151,6 +158,7 @@ Qua API, nhiều phần mềm có thể truy
   - Những Script được viết bằng Java hoặc Python có thể sử dụng API để truy xuất thông tin từ SDN Controller hoặc cấu hình mạng.
   - Những ứng dụng khác cũng có thể truy nhập SDN Controller. Có thể là một ứng dụng tự động cấu hình mạng khi một máy ảo mới được tạo trên máy chủ VMware ESXi.
 
+<a name='9' ></a>
 ### REST API
 
 Như đã nói ở trên, giao diện northbound và southbound đều sử dụng API. Vậy API là gì?. SDN Controller thường sử dụng một REST API (Representational State Transfer).
