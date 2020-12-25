@@ -50,3 +50,23 @@ Lệnh này sẽ kết nối tới internet và tải các package hệ thông m
 Kiểm tra lại một chút:
 
 ![](https://i.imgur.com/6naLZ82.png)
+
+**Bước 5** : Thêm Docker repository vào APT sources:
+
+    sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu bionic stable"
+
+**Bước 6** : Cài đặt docker-ce:
+
+Cập nhật cơ sở dữ liệu package với các gói Docker từ repo mới adđ:
+
+    $ sudo apt update
+
+Sau đó cài đặt Docker:
+
+    $ sudo apt install docker-ce
+
+Check:
+
+    $ sudo docker version
+
+![](https://i.imgur.com/ssOpyxY.png)

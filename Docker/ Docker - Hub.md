@@ -1,0 +1,38 @@
+# Docker - Hub
+
+Docker Hub là một registry service trên cloud cho phép tải các Docker Image được xây dựng bởi cộng đồng phát triển. Ta có cũng có thể upload các Docker Image mình tự built lên Docker Hub.
+
+Trang chính thức của Docker Hub là: https://www.docker.com/community-edition#/add_ons
+
+Bây giờ ta thử download và sử dụng một Docker Image từ Docker Hub, ví dụ là Jenkins Docker Image.
+
+**Bước 1**: Truy cập vào trang Docker Hub
+
+![](https://i.imgur.com/T8xsYVM.png)
+
+**Bước 2**: Tìm kiếm Jenkins Image, và chọn Official Image của Jenkins:
+
+![](https://i.imgur.com/MKwI7t7.png)
+
+![](https://i.imgur.com/oY6bKzQ.png)
+
+**Bước 3**: Coppy lệnh Docker Pull, sau đó chạy lệnh đó trên Ubuntu server với quyền sudo.
+
+![](https://i.imgur.com/ZpixxCm.png)
+
+![](https://i.imgur.com/FdTO6hY.png)
+
+Output ở trên cho thấy đã xảy ra lỗi. Tìm hiểu thì thấy lỗi này có thể là do documentation của nhóm phát triển Jenkins cung cấp lỗi.
+
+Nên ta thử với Docker Image khác, ví dụ Ubuntu Docker Image. Tìm kiếm Ubuntu Image trên Docker Hub và Coppy lệnh Docker Pull như đã làm ở trên.
+
+![](https://i.imgur.com/e5j2ORE.png)
+
+Vậy là đã tải thành công Image bản mới nhất của Ubuntu Docker Image.
+
+Để khởi chạy Docker Ubuntu chạy lệnh sau:
+
+    $ sudo docker run -it ubuntu /bin/bash
+
+- **-it** dùng để chạy ở chế độ **interactive mode**
+- **/bin/bash** dùng để chạy *bash shell* khi Ubuntu được khởi chạy.
